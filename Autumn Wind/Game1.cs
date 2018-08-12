@@ -9,6 +9,8 @@ namespace Autumn_Wind
     /// </summary>
     public class Game1 : Game
     {
+        string windowTitle = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name.ToString() + " Alpha " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         
@@ -26,6 +28,7 @@ namespace Autumn_Wind
         /// </summary>
         protected override void Initialize()
         {
+            this.Window.Title = windowTitle;
             // TODO: Add your initialization logic here
 
             base.Initialize();

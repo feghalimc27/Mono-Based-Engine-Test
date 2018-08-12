@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+
+namespace Autumn_Wind {
+    class Tile {
+        /* 
+        * Base tile class for all objects in the game. Contains default sprite data and position.
+        */
+
+        private Texture2D _sprite;
+        protected Vector2 _position;
+
+        public virtual void Initialize() {
+            // TODO: Tile initalize base function
+        }
+
+        public virtual void LoadContent() {
+            // TODO: Tile load content base function
+        }
+
+        public virtual void Update(GameTime gameTime) {
+            // TODO: Tile update base function
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch) {
+            // TODO: Tile draw base function
+        }
+
+        public virtual void DrawStatic(SpriteBatch spriteBatch) {
+            spriteBatch.Draw(_sprite, _position, Color.White);
+        }
+
+        public virtual void DrawAnimated(SpriteBatch spriteBatch, Vector2 spritePosition, Vector2 spriteStripEndPosition, float animationSpeed) {
+            // TODO: Tile draw animated function, look up how this is done
+        }
+
+        // Get and Set Sprite
+        protected Texture2D GetSprite() => _sprite;
+        protected void SetSprite(Texture2D sprite) => _sprite = sprite;
+
+        // Get and Set Position
+        protected Vector2 GetPosition() => _position;
+        protected void SetPosition(Vector2 position) => _position = position;
+        protected void SetPosition(float x, float y) => _position = new Vector2(x, y);
+    }
+}
