@@ -16,6 +16,15 @@ namespace Autumn_Wind {
         private Texture2D _sprite;
         protected Vector2 _position;
 
+        public Tile() {
+
+        }
+
+        public Tile(Texture2D sprite, Vector2 position) {
+            _sprite = sprite;
+            _position = position;
+        }
+
         public virtual void Initialize() {
             // TODO: Tile initalize base function
         }
@@ -36,7 +45,7 @@ namespace Autumn_Wind {
             spriteBatch.Draw(_sprite, _position, Color.White);
         }
 
-        public virtual void DrawAnimated(SpriteBatch spriteBatch, Vector2 spritePosition, Vector2 spriteStripEndPosition, float animationSpeed) {
+        public virtual void DrawAnimated(SpriteBatch spriteBatch, Vector2 spritePosition, Vector2 spriteStripEndPosition, Vector2 spriteSize, float animationSpeed) {
             // TODO: Tile draw animated function, look up how this is done
         }
 
