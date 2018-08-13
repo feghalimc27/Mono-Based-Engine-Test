@@ -39,6 +39,7 @@ namespace Autumn_Wind {
 
         public virtual void Draw(SpriteBatch spriteBatch) {
             // TODO: Tile draw base function
+			DrawStatic(spriteBatch);
         }
 
         public virtual void DrawStatic(SpriteBatch spriteBatch) {
