@@ -13,6 +13,8 @@ namespace Autumn_Wind
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+		PhysicsObject tempBall;
         
         public Game1()
         {
@@ -29,7 +31,9 @@ namespace Autumn_Wind
         protected override void Initialize()
         {
             this.Window.Title = windowTitle;
-            // TODO: Add your initialization logic here
+			// TODO: Add your initialization logic here
+
+			tempBall = new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(100, 0));
 
             base.Initialize();
         }
@@ -65,7 +69,8 @@ namespace Autumn_Wind
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+			// TODO: Add your update logic here
+			tempBall.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -78,7 +83,10 @@ namespace Autumn_Wind
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+			// TODO: Add your drawing code here
+			spriteBatch.Begin();
+			tempBall.DrawStatic(spriteBatch);
+			spriteBatch.End();
 
             base.Draw(gameTime);
         }

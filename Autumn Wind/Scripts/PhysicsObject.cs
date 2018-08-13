@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Autumn_Wind.Scripts {
+namespace Autumn_Wind {
     class PhysicsObject : Tile {
         /*
          * Base class containing all attributes of a physics object.
@@ -14,9 +14,10 @@ namespace Autumn_Wind.Scripts {
 
         // TODO: Physics related functions and attributes
 
-        protected float gravity = 0;
+        protected float gravity = 25.0f;
+		protected float friction = 0;
         
-        protected Vector2 movement;
+		protected Vector2 movement = new Vector2(0, 0);
 
         public PhysicsObject() : base() {
 
@@ -25,6 +26,11 @@ namespace Autumn_Wind.Scripts {
         public PhysicsObject(Texture2D sprite, Vector2 position) : base(sprite, position) {
 
         }
+
+		protected void ApplyGravity(GameTime gameTime) {
+			movement.Y += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+			_position += movement;
+		}
 
         public override void Initialize() {
             base.Initialize();
@@ -35,6 +41,10 @@ namespace Autumn_Wind.Scripts {
         }
 
         public override void Update(GameTime gameTime) {
+			// Apply gravity
+			// TODO: Add physics check before applying gravity
+			ApplyGravity(gameTime);
+
             base.Update(gameTime);
         }
 

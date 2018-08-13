@@ -49,6 +49,10 @@ namespace Autumn_Wind {
             // TODO: Tile draw animated function, look up how this is done
         }
 
+		public void DebugOutput(string message) {
+			System.Diagnostics.Trace.WriteLine(message);
+		}
+
         // Get and Set Sprite
         protected Texture2D GetSprite() => _sprite;
         protected void SetSprite(Texture2D sprite) => _sprite = sprite;
