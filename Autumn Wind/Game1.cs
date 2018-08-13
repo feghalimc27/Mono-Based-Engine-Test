@@ -13,6 +13,8 @@ namespace Autumn_Wind
         SpriteBatch spriteBatch;
 
 		List<PhysicsObject> physicsObjects;
+
+        public static InputManager inputManager;
         
         public Game1()
         {
@@ -22,7 +24,9 @@ namespace Autumn_Wind
 
 		protected override void Initialize() {
 			this.Window.Title = windowTitle;
-			// TODO: Add your initialization logic here
+            // TODO: Add your initialization logic here
+
+            inputManager = new InputManager();
 
 			physicsObjects = new List<PhysicsObject> {
 				new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(100, 25)),
