@@ -48,6 +48,8 @@
     <Compile Include="Scripts\InputManager.cs" />
     <Compile Include="Scripts\PhysicsObject.cs" />
     <Compile Include="Scripts\Tile.cs" />
+    <Compile Include="Scripts\Platform.cs" />
+    <Compile Include="Scripts\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

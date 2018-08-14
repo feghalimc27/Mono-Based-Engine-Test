@@ -23,12 +23,12 @@ namespace Autumn_Wind {
         protected float bounceHeight = 0;
 
 		protected float gravity = globalGravity;
-		protected float friction = 0;
+		protected float friction = 0.78f;
         protected float bounciness = 0;
 
 		protected Vector2 movement = new Vector2(0, 0);
 
-        public Rectangle collisionBox {
+		public virtual Rectangle collisionBox {
             get {
                 return new Rectangle((int)_position.X, (int)_position.Y, _sprite.Width, _sprite.Height);
             }

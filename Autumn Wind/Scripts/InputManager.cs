@@ -79,7 +79,8 @@ namespace Autumn_Wind {
         }
 
         public void Update() {
-
+			ManageAxes();
+			ManageButtons();
         }
 
         private void ManageButtons() {

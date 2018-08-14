@@ -28,13 +28,6 @@ namespace Autumn_Wind
 
             inputManager = new InputManager();
 
-            physicsObjects = new List<PhysicsObject> {
-                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(100, 25)),
-                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(200, 25), 15, false, 1.1f),
-                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(300, 25) , 0, true),
-                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPlatform"), new Vector2(100, 400), 0)
-			};
-
             base.Initialize();
         }
 
@@ -44,6 +37,13 @@ namespace Autumn_Wind
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+			physicsObjects = new List<PhysicsObject> {
+				new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(150, 25), 15, false, 1.1f),
+				new Platform(Content.Load<Texture2D>("Sprites/tempPlatform"), new Vector2(100, 400)),
+				new Platform(Content.Load<Texture2D>("Sprites/tempPlatform"), new Vector2(228, 368)),
+				new Platform(Content.Load<Texture2D>("Sprites/tempPlatform"), new Vector2(356, 368)),
+				new Player(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(100, 25))
+			};
         }
 
         protected override void UnloadContent()
@@ -55,6 +55,8 @@ namespace Autumn_Wind
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+			inputManager.Update();
 
 			// TODO: Add your update logic here
 			foreach (var obj in physicsObjects) {
