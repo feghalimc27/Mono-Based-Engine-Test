@@ -28,10 +28,11 @@ namespace Autumn_Wind
 
             inputManager = new InputManager();
 
-			physicsObjects = new List<PhysicsObject> {
-				new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(100, 25)),
-				new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(200, 25), 15),
-				new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(300, 25) , 0, true)
+            physicsObjects = new List<PhysicsObject> {
+                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(100, 25)),
+                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(200, 25), 15, false, 1.1f),
+                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPhysicsBall"), new Vector2(300, 25) , 0, true),
+                new PhysicsObject(Content.Load<Texture2D>("Sprites/tempPlatform"), new Vector2(100, 400), 0)
 			};
 
             base.Initialize();
@@ -57,7 +58,7 @@ namespace Autumn_Wind
 
 			// TODO: Add your update logic here
 			foreach (var obj in physicsObjects) {
-				obj.Update(gameTime);
+				obj.Update(gameTime, physicsObjects);
 			}
 
             base.Update(gameTime);

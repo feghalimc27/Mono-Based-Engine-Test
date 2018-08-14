@@ -13,7 +13,7 @@ namespace Autumn_Wind {
         * Base tile class for all objects in the game. Contains default sprite data and position.
         */
 
-        private Texture2D _sprite;
+        protected Texture2D _sprite;
         protected Vector2 _position;
 
         public Tile() {
