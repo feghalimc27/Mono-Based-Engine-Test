@@ -50,7 +50,7 @@ namespace Autumn_Wind {
             // TODO: Tile draw animated function, look up how this is done
         }
 
-		public void DebugOutput(string message) {
+		public static void DebugOutput(string message) {
 			System.Diagnostics.Trace.WriteLine(message);
 		}
 

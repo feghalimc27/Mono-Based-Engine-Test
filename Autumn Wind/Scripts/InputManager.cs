@@ -78,12 +78,17 @@ namespace Autumn_Wind {
             _inputLength = _inputs.Capacity;
         }
 
+        public void Initialize() {
+            keyboard = Keyboard.GetState();
+        }
+
         public void Update() {
 			ManageAxes();
 			ManageButtons();
         }
 
         private void ManageButtons() {
+            keyboard = Keyboard.GetState();
             // Jump
             _inputs[0].SetActive(keyboard.IsKeyDown(jumpKeyPrimary) || gamePad.IsButtonDown(jumpButtonController));
             // Crouch
@@ -94,6 +99,7 @@ namespace Autumn_Wind {
         }
 
         private void ManageAxes() {
+            keyboard = Keyboard.GetState();
             // Left movement: horizontal axis
             if (keyboard.IsKeyDown(leftKeyPrimary) || keyboard.IsKeyDown(leftKeySecondary) || gamePad.ThumbSticks.Left.X < -_controllerDeadzone) {
                 _inputs[3].SetValue(-1);

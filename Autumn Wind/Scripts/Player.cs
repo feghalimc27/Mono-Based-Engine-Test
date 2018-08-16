@@ -50,13 +50,13 @@ namespace Autumn_Wind {
 		}
 
 		private void Move(GameTime gameTime) {
-			DebugOutput(inputManager.GetAxisValue(3).ToString());
-			DebugOutput(inputManager.GetButtonDown("Jump").ToString());
+			DebugOutput(Game1.inputManager.GetAxisValue(3).ToString());
+			DebugOutput(Game1.inputManager.GetButtonDown("Jump").ToString());
 
-			if (inputManager.GetAxisValue(3) > 0) {
+			if (Game1.inputManager.GetAxisValue(3) > 0) {
 				movement.X += acceleration * (float)gameTime.ElapsedGameTime.Milliseconds;
 			}
-			if (inputManager.GetAxisValue(3) < 0) {
+			if (Game1.inputManager.GetAxisValue(3) < 0) {
 				movement.X -= acceleration * (float)gameTime.ElapsedGameTime.Milliseconds;
 			}
 		}
