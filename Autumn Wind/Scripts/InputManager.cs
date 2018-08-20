@@ -11,6 +11,7 @@ namespace Autumn_Wind {
 
         // Controllers
         // REMINDER: Might need to be public?
+		// TODO: Rewrite entire input manager using tutorial on monogame samples. Google for input manager monogame
         private KeyboardState keyboard = Keyboard.GetState();
         private GamePadState gamePad = GamePad.GetState(1);
 
@@ -89,6 +90,7 @@ namespace Autumn_Wind {
 
         private void ManageButtons() {
             keyboard = Keyboard.GetState();
+			gamePad = GamePad.GetState(1);
             // Jump
             _inputs[0].SetActive(keyboard.IsKeyDown(jumpKeyPrimary) || gamePad.IsButtonDown(jumpButtonController));
             // Crouch
@@ -100,6 +102,10 @@ namespace Autumn_Wind {
 
         private void ManageAxes() {
             keyboard = Keyboard.GetState();
+			gamePad = GamePad.GetState(1);
+
+			Tile.DebugOutput("Managing Axes");
+
             // Left movement: horizontal axis
             if (keyboard.IsKeyDown(leftKeyPrimary) || keyboard.IsKeyDown(leftKeySecondary) || gamePad.ThumbSticks.Left.X < -_controllerDeadzone) {
                 _inputs[3].SetValue(-1);
